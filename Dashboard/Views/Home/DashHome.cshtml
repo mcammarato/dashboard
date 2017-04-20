@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Dashboard Home</title>
+    <link rel="stylesheet" type="text/css" href="~/content/reset.css">
+    <link rel="stylesheet" type="text/css" href="~/content/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons-wind.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons-wind.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/font/weathericons-regular-webfont.eot" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/font/weathericons-regular-webfont.svg" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/font/weathericons-regular-webfont.ttf" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/font/weathericons-regular-webfont.woff" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/font/weathericons-regular-webfont.woff2" />
+</head>
+<body>
+    <header>
+        <div class="nav-wrapper">
+            <nav class="navbar-nav">
+                <div class="page-wrap">
+                    <ul>
+                        <li><a href="#">First</a></li>
+                        <li><a href="#">Second</a></li>
+                        <li><a href="#">Third</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="dash-wrap">
+        <div class="page-wrap">
+            <div class="container">
+                <div class="weather-container">
+                    <div class="weather-data-wrap">
+                        <p id="city"></p>
+                        <hr>
+                        <p id="temp_f"><span>Temp</span></p>
+                        <p id="feelslike_f"><span>Feels Like</span></p>
+                    </div>
+                    <i id="weather-icon"></i>
+                </div>
+            </div>
+            <div class="container">
+                <div class="habitica-container">
+                    <div class="habitica-container-wrap">
+                        <p id="profile">To Do's</p>
+                        <hr>
+                        <div id="todos"></div>
+                    </div>
+                    <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="container">
+                <div class="pocket-container">
+                    <div class="pocket-container-wrap">
+                        <div id="pocket-data"></div>
+                        <p>@ViewBag.x</p>
+                    </div>
+                </div>
+            </div>
+        </div> @* Page Wrap *@
+    </section> @* Dash Wrap *@
+</body>
+
+</html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="~/content/scripts.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
