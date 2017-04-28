@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="~/content/reset.css">
     <link rel="stylesheet" type="text/css" href="~/content/styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons-wind.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons-wind.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.css" />
@@ -30,10 +31,9 @@
             </nav>
         </div>
     </header>
-
     <section class="dash-wrap">
         <div class="page-wrap">
-            <div class="container">
+            <div id="resize" class="container">
                 <div class="weather-container">
                     <div class="weather-data-wrap">
                         <p id="city"></p>
@@ -44,7 +44,7 @@
                     <i id="weather-icon"></i>
                 </div>
             </div>
-            <div class="container">
+            <div id="resize" class="container">
                 <div class="habitica-container">
                     <div class="habitica-container-wrap">
                         <p id="profile">To Do's</p>
@@ -70,4 +70,4 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="~/content/scripts.js"></script>
-<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<script src="https://npmcdn.com/draggabilly@2.1/dist/draggabilly.pkgd.min.js"></script>

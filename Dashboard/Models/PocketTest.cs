@@ -22,13 +22,13 @@ namespace Dashboard.Models
         public int since { get; set; }
     }
 
-    public class SearchMeta
+    public class Search_Meta
     {
         public string search_type { get; set; }
     }
 
 
-    public class listOfItems
+    public class List
     {
         public string item_id { get; set; }
         public string resolved_id { get; set; }

@@ -32,10 +32,12 @@ span {
 	border: 0;
 	border-radius: 3px;
 	display: inline-block;
-	max-width: 500px;
+	max-width: 40%;
 	padding: 20px;
 	margin: 20px;
 	vertical-align: top;
+    overflow: hidden;
+    clear: both;
 }
 
 .weather-container {
@@ -61,6 +63,7 @@ span {
 
 .weather-data-wrap {
 	margin-right: 60px;
+    max-width: 100%;
 }
 
 #weather-icon {
@@ -96,4 +99,29 @@ span {
 
 #todos p:nth-child(odd) {
 	color: #6D4C41;
+}
+
+/* Resizeable */
+
+div.resizable { 
+    background: #fff; 
+    position: relative; 
+    color: black; 
+    content: "I am resizable now";
+}
+div.resizer { 
+    width: 10px;
+    height: 10px;
+    background: #FF5722;
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    cursor: move; 
+}
+
+@media only screen and (max-width: 768px) {
+    #weather-icon {
+        display: block;
+    }
 }
