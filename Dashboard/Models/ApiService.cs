@@ -21,12 +21,12 @@ namespace Dashboard
             var content = client.UploadString("https://getpocket.com/v3/get", postData);
             //List<BaseObject> listPocket = (List<BaseObject>)javascriptSerializer.Deserialize(content, typeof(List<BaseObject>));
             BaseObject pocketObject = javascriptSerializer.Deserialize<BaseObject>(content);
-           // var title = pocketObject.list.resolved_title;
-
-           //foreach (var i in title)
-           // {
-           //    Console.WriteLine(i);
-           // }
+            // var title = pocketObject.list.resolved_title;
+            List<BaseObject> myDeserializedObjList = (List<BaseObject>)Newtonsoft.Json.JsonConvert.DeserializeObject(postData["content"], typeof(List<BaseObject>));
+            //foreach (var i in title)
+            // {
+            //    Console.WriteLine(i);
+            // }
 
             return null;
         }
