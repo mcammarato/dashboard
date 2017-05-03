@@ -31,3 +31,5 @@ C:\Users\mike\documents\visual studio 2015\Projects\Dashboard\Dashboard\bin\Syst
 C:\Users\mike\documents\visual studio 2015\Projects\Dashboard\Dashboard\obj\Debug\Dashboard.csprojResolveAssemblyReference.cache
 C:\Users\mike\documents\visual studio 2015\Projects\Dashboard\Dashboard\obj\Debug\Dashboard.dll
 C:\Users\mike\documents\visual studio 2015\Projects\Dashboard\Dashboard\obj\Debug\Dashboard.pdb
+C:\Users\mike\documents\visual studio 2015\Projects\Dashboard\Dashboard\bin\Newtonsoft.Json.dll
+C:\Users\mike\documents\visual studio 2015\Projects\Dashboard\Dashboard\bin\Newtonsoft.Json.xml

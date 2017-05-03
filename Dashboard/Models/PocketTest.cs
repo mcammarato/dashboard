@@ -3,20 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Net;
-using System.Web.Script.Serialization; 
+using System.Web.Script.Serialization;
 
 
 namespace Dashboard.Models
 {
-    public class Employee
-    {
-        string firstName { get; set; }
-    }
     public class BaseObject
     {
         public int status { get; set; }
         public int complete { get; set; }
-        public List list { get; set; }
+        public object List { get; set; }
         public object error { get; set; }
         public Search_Meta search_meta { get; set; }
         public int since { get; set; }

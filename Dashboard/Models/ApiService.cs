@@ -19,14 +19,9 @@ namespace Dashboard
             var postData = javascriptSerializer.Serialize(new { consumer_key = PocketConsumerKey, access_token = PocketAccessToken });
             client.Headers.Add(System.Net.HttpRequestHeader.ContentType, "application/json");
             var content = client.UploadString("https://getpocket.com/v3/get", postData);
-            //List<BaseObject> listPocket = (List<BaseObject>)javascriptSerializer.Deserialize(content, typeof(List<BaseObject>));
-            BaseObject pocketObject = javascriptSerializer.Deserialize<BaseObject>(content);
-            // var title = pocketObject.list.resolved_title;
-            List<BaseObject> myDeserializedObjList = (List<BaseObject>)Newtonsoft.Json.JsonConvert.DeserializeObject(postData["content"], typeof(List<BaseObject>));
-            //foreach (var i in title)
-            // {
-            //    Console.WriteLine(i);
-            // }
+            //BaseObject pocketObject = javascriptSerializer.Deserialize<BaseObject>(content);
+            var obj = javascriptSerializer.Deserialize<BaseObject>(content);
+            //var title = obj.list;
 
             return null;
         }
