@@ -1,1 +1,4 @@
-Web.Secrets.config
+.vs/
+bin/
+obj/
+packages/
