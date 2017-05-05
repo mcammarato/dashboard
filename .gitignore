@@ -1,1 +1,8 @@
+.vs/
+bin/
+obj/
+packages/
+*.user
+*.suo
+
 Web.Secrets.config
