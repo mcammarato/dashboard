@@ -5,6 +5,7 @@ using System.Web.Script.Serialization;
 using System.Configuration;
 using System.Web.Configuration;
 using Dashboard.Models;
+using System.Linq;
 
 namespace Dashboard
 {
@@ -19,11 +20,11 @@ namespace Dashboard
             var postData = javascriptSerializer.Serialize(new { consumer_key = PocketConsumerKey, access_token = PocketAccessToken });
             client.Headers.Add(System.Net.HttpRequestHeader.ContentType, "application/json");
             var content = client.UploadString("https://getpocket.com/v3/get", postData);
-            //BaseObject pocketObject = javascriptSerializer.Deserialize<BaseObject>(content);
-            var obj = javascriptSerializer.Deserialize<BaseObject>(content);
-            //var title = obj.list;
+            var pocketJSON = javascriptSerializer.Deserialize<BaseObject>(content);
 
-            return null;
+            // list data coming back null
+            var test = pocketJSON.list.given_title;
+            return pocketJSON;
         }
 
     }
