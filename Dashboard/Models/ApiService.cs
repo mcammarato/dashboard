@@ -23,7 +23,7 @@ namespace Dashboard
             var pocketJSON = javascriptSerializer.Deserialize<BaseObject>(content);
 
             // list data coming back null
-            var test = pocketJSON.list.given_title;
+            var test = pocketJSON.list.First().Value.given_title;
             return pocketJSON;
         }
 
