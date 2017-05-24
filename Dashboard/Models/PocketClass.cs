@@ -8,6 +8,7 @@ using System.Web.Script.Serialization;
 
 namespace Dashboard.Models
 {
+
     public class BaseObject
     {
         public int status { get; set; }
@@ -18,7 +19,8 @@ namespace Dashboard.Models
         public int since { get; set; }
     }
 
-    public class Search_Meta
+
+public class Search_Meta
     {
         public string search_type { get; set; }
     }

@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Dashboard.Models;
 
 namespace Dashboard.Controllers
 {
@@ -11,7 +12,7 @@ namespace Dashboard.Controllers
     {
         // Dash View
         public ActionResult DashHome()
-        {
+        {   
             return View();
         }
 

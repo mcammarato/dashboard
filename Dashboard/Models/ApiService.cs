@@ -22,9 +22,24 @@ namespace Dashboard
             var content = client.UploadString("https://getpocket.com/v3/get", postData);
             var pocketJSON = javascriptSerializer.Deserialize<BaseObject>(content);
 
-            // list data coming back null
-            var test = pocketJSON.list.First().Value.given_title;
-            return pocketJSON;
+            string p_title = null;
+
+            var pocketList = new List<string>();
+
+            foreach (KeyValuePair<string, Dashboard.Models.List> entry in pocketJSON.list)
+            {
+                string resolved_title = entry.Value.resolved_title;
+
+                p_title = resolved_title;
+
+                pocketList.Add(p_title);
+            }
+
+            var lastFiveTitles = (from t in pocketList
+                            orderby t descending
+                            select t).Take(5);
+
+            return lastFiveTitles;
         }
 
     }

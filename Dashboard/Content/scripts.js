@@ -36,9 +36,9 @@ $(document).ready(function () {
 
     $.get('/Home/PocketCall', function (response) {
 
-        $.each(response.list, function (index, val) {
+        $.each(response, function (index, val) {
 
-            $('#pocket-data').append("<p>" + val.given_title + "<p>" + "<span>" + "<br>" + index + "</span>");
+            $('#pocket-data').append('<p class="pocket-title">' + val + '</p>');
         });
     });
 

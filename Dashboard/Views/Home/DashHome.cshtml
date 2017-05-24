@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@model Dashboard.Models.BaseObject
+
+
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -59,6 +62,11 @@
                     <div class="pocket-container-wrap">
                         <div id="pocket-data"></div>
                         <p>@ViewBag.x</p>
+
+                        @*@foreach (var t in Model.list.Values)
+                        {
+                            <p>@t.given_title</p>
+                        }*@
                     </div>
                 </div>
             </div>

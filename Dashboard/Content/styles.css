@@ -101,6 +101,18 @@ span {
 	color: #6D4C41;
 }
 
+/* Pocket */
+
+.pocket-title {
+    color: #4CAF50;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.pocket-title:nth-child(odd) {
+    color: #6D4C41;
+}
+
 /* Resizeable */
 
 div.resizable { 
