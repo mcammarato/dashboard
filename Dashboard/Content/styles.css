@@ -3,6 +3,11 @@
 	background-color: #f1f1f1;
 }
 
+a {
+    color: #1E88E5;
+    text-decoration: none;
+}
+
 span {
   	display: inline-block;
 }
@@ -103,6 +108,10 @@ span {
 
 /* Pocket */
 
+.pocket-header {
+    font-size: 42px;
+}
+
 .pocket-title {
     color: #4CAF50;
     margin-bottom: 20px;
@@ -112,6 +121,7 @@ span {
 .pocket-title:nth-child(odd) {
     color: #6D4C41;
 }
+
 
 /* Resizeable */
 

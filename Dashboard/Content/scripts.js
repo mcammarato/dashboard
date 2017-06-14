@@ -36,10 +36,16 @@ $(document).ready(function () {
 
     $.get('/Home/PocketCall', function (response) {
 
-        $.each(response, function (index, val) {
+        var article_title = response['0'];
+        var article_url = response['1'];
 
-            $('#pocket-data').append('<p class="pocket-title">' + val + '</p>');
-        });
+
+        $('#pocket-data').append('<p class="pocket-title"><a href="' + article_url + '">' + article_title + '</a></p>');
+
+        //$.each(response, function (index, val) {
+
+        //    $('#pocket-data').append('<p class="pocket-title"><a href="' + article_url + '">' + article_title + '</a></p>');
+        //});
     });
 
     //Grab Weather Data

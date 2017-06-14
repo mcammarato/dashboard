@@ -23,6 +23,7 @@ namespace Dashboard
             var pocketJSON = javascriptSerializer.Deserialize<BaseObject>(content);
 
             string p_title = null;
+            string p_url = null;
 
             var pocketList = new List<string>();
 
@@ -30,16 +31,21 @@ namespace Dashboard
             {
                 string resolved_title = entry.Value.resolved_title;
 
-                p_title = resolved_title;
+                string url = entry.Value.given_url;
 
-                pocketList.Add(p_title);
+                p_title = resolved_title;
+                p_url = url;
+
             }
 
-            var lastFiveTitles = (from t in pocketList
-                            orderby t descending
-                            select t).Take(5);
+            pocketList.Add(p_title);
+            pocketList.Add(p_url);
 
-            return lastFiveTitles;
+            var lastFiveArticles = (from t in pocketList
+                                   orderby t descending
+                                   select t).Take(5);
+
+            return pocketList;
         }
 
     }
