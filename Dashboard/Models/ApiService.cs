@@ -6,6 +6,8 @@ using System.Configuration;
 using System.Web.Configuration;
 using Dashboard.Models;
 using System.Linq;
+using ExtensionMethods;
+using Newtonsoft.Json;
 
 namespace Dashboard
 {
@@ -15,7 +17,7 @@ namespace Dashboard
         {
             string PocketConsumerKey = ConfigurationManager.AppSettings["consumer_key"];
             string PocketAccessToken = ConfigurationManager.AppSettings["access_token"];
-            var client = new WebClient();       
+            var client = new WebClient();
             JavaScriptSerializer javascriptSerializer = new JavaScriptSerializer();
             var postData = javascriptSerializer.Serialize(new { consumer_key = PocketConsumerKey, access_token = PocketAccessToken });
             client.Headers.Add(System.Net.HttpRequestHeader.ContentType, "application/json");
@@ -24,28 +26,35 @@ namespace Dashboard
 
             string p_title = null;
             string p_url = null;
+            var jsonData = "";
+           
 
             var pocketList = new List<string>();
 
             foreach (KeyValuePair<string, Dashboard.Models.List> entry in pocketJSON.list)
             {
                 string resolved_title = entry.Value.resolved_title;
-
-                string url = entry.Value.given_url;
+                string url = entry.Value.resolved_url;
 
                 p_title = resolved_title;
                 p_url = url;
 
+                pocketList.Add(p_title);
+                pocketList.Add(p_url);
+
+           
+
+               jsonData = JsonConvert.SerializeObject(pocketList);
+
             }
 
-            pocketList.Add(p_title);
-            pocketList.Add(p_url);
+            //var lastFiveTitles = (from t in pocketList
+            //                      orderby t descending
+            //                      select t).Take(5);
 
-            var lastFiveArticles = (from t in pocketList
-                                   orderby t descending
-                                   select t).Take(5);
 
-            return pocketList;
+
+            return jsonData;
         }
 
     }

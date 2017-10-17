@@ -1,51 +1,61 @@
-﻿var p = document.getElementById('resize');
+﻿//var p = document.getElementById('resize');
 
-p.addEventListener('click', function init() {
-    p.removeEventListener('click', init, false);
-    p.className = p.className + ' resizable';
-    var resizer = document.createElement('div');
-    resizer.className = 'resizer';
-    p.appendChild(resizer);
-    resizer.addEventListener('mousedown', initDrag, false);
-}, false);
+//p.addEventListener('click', function init() {
+//    p.removeEventListener('click', init, false);
+//    p.className = p.className + ' resizable';
+//    var resizer = document.createElement('div');
+//    resizer.className = 'resizer';
+//    p.appendChild(resizer);
+//    resizer.addEventListener('mousedown', initDrag, false);
+//}, false);
 
-var startX, startY, startWidth, startHeight;
+//var startX, startY, startWidth, startHeight;
 
-function initDrag(e) {
-    startX = e.clientX;
-    startY = e.clientY;
-    startWidth = parseInt(document.defaultView.getComputedStyle(p).width, 10);
-    startHeight = parseInt(document.defaultView.getComputedStyle(p).height, 10);
-    document.documentElement.addEventListener('mousemove', doDrag, false);
-    document.documentElement.addEventListener('mouseup', stopDrag, false);
-}
+//function initDrag(e) {
+//    startX = e.clientX;
+//    startY = e.clientY;
+//    startWidth = parseInt(document.defaultView.getComputedStyle(p).width, 10);
+//    startHeight = parseInt(document.defaultView.getComputedStyle(p).height, 10);
+//    document.documentElement.addEventListener('mousemove', doDrag, false);
+//    document.documentElement.addEventListener('mouseup', stopDrag, false);
+//}
 
-function doDrag(e) {
-    p.style.width = (startWidth + e.clientX - startX) + 'px';
-    p.style.height = (startHeight + e.clientY - startY) + 'px';
-    console.log(startWidth, e, startX, p.style.width);
-}
+//function doDrag(e) {
+//    p.style.width = (startWidth + e.clientX - startX) + 'px';
+//    p.style.height = (startHeight + e.clientY - startY) + 'px';
+//    console.log(startWidth, e, startX, p.style.width);
+//}
 
-function stopDrag(e) {
-    document.documentElement.removeEventListener('mousemove', doDrag, false); document.documentElement.removeEventListener('mouseup', stopDrag, false);
-}
+//function stopDrag(e) {
+//    document.documentElement.removeEventListener('mousemove', doDrag, false); document.documentElement.removeEventListener('mouseup', stopDrag, false);
+//}
 
 
 $(document).ready(function () {
-    // Grab Pocket Data
 
+
+    // Grab Pocket Data
     $.get('/Home/PocketCall', function (response) {
 
-        var article_title = response['0'];
-        var article_url = response['1'];
+        pocketJSON = JSON.parse(response)
 
+        var pocketTitle = pocketJSON[0]
+        var pocketUrl = pocketJSON[1]
+        var pt1 = pocketJSON[3]
 
-        $('#pocket-data').append('<p class="pocket-title"><a href="' + article_url + '">' + article_title + '</a></p>');
+        //$('#pocket-data').append(pocketTitle);
+        //$('#pocket-data').append(pocketUrl);
+        //$('#pocket-data').append(pt1);
 
-        //$.each(response, function (index, val) {
+        var title = [];
+        var url = [];
+        for (var i = 0; i < pocketJSON.length; i += 2) {
+            title.push(pocketJSON[i]);
+            pocketJSON[i + 1] && url.push(pocketJSON[i + 1]);
+            console.log(title);
+            console.log(url);   
+        }
 
-        //    $('#pocket-data').append('<p class="pocket-title"><a href="' + article_url + '">' + article_title + '</a></p>');
-        //});
     });
 
     //Grab Weather Data
