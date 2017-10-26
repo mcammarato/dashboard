@@ -111,6 +111,7 @@
     <Compile Include="Models\ApiServiceConfig.cs" />
     <Compile Include="Models\PocketClass.cs" />
     <Compile Include="Models\GeneratedClasses.cs" />
+    <Compile Include="Models\StringContent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -6,13 +6,13 @@ using System.Configuration;
 using System.Web.Configuration;
 using Dashboard.Models;
 using System.Linq;
-using ExtensionMethods;
 using Newtonsoft.Json;
 
 namespace Dashboard
 {
     public class Pocket
     {
+
         public object GetPocketData()
         {
             string PocketConsumerKey = ConfigurationManager.AppSettings["consumer_key"];
@@ -21,40 +21,25 @@ namespace Dashboard
             JavaScriptSerializer javascriptSerializer = new JavaScriptSerializer();
             var postData = javascriptSerializer.Serialize(new { consumer_key = PocketConsumerKey, access_token = PocketAccessToken });
             client.Headers.Add(System.Net.HttpRequestHeader.ContentType, "application/json");
-            var content = client.UploadString("https://getpocket.com/v3/get", postData);
-            var pocketJSON = javascriptSerializer.Deserialize<BaseObject>(content);
+            var json = client.UploadString("https://getpocket.com/v3/get", postData);
+            BaseObject pocketJSON = JsonConvert.DeserializeObject<BaseObject>(json);
 
-            string p_title = null;
-            string p_url = null;
-            var jsonData = "";
-           
+            var pd = new PocketData();
 
-            var pocketList = new List<string>();
-
-            foreach (KeyValuePair<string, Dashboard.Models.List> entry in pocketJSON.list)
+            foreach (var entry in pocketJSON.list)
             {
-                string resolved_title = entry.Value.resolved_title;
-                string url = entry.Value.resolved_url;
-
-                p_title = resolved_title;
-                p_url = url;
-
-                pocketList.Add(p_title);
-                pocketList.Add(p_url);
-
-           
-
-               jsonData = JsonConvert.SerializeObject(pocketList);
-
+                pd.Title = entry.Value.resolved_title;
+                pd.URL = entry.Value.resolved_url;
+                pd.Excerpt = entry.Value.excerpt;
             }
 
-            //var lastFiveTitles = (from t in pocketList
+            var result = JsonConvert.SerializeObject(pd, Formatting.Indented);
+
+            //var lastFivePocket = (from t in pd
             //                      orderby t descending
             //                      select t).Take(5);
 
-
-
-            return jsonData;
+            return result;
         }
 
     }

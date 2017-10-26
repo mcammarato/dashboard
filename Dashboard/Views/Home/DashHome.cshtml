@@ -63,17 +63,15 @@
                         <p class="pocket-header">Pocket Articles</p>
                         <hr />
                         <div id="pocket-data"></div>
-                        <p>@ViewBag.x</p>
-
-                        @*@foreach (var t in Model.list.Values)
-                        {
-                            <p>@t.given_title</p>
-                        }*@
                     </div>
                 </div>
             </div>
+
         <!--Handle Bars Testing -->
+
         <div id="mike-data"></div>
+
+
         </div> @* Page Wrap *@
     </section> @* Dash Wrap *@
 </body>
@@ -81,8 +79,23 @@
 </html>
 
 
+<script id="pocket-template" type="text/x-handlebars-template">
+    @*<div class="testing">
+        {{#each list}}
+        <a href="{{resolved_url}}">{{resolved_title}}</a>
+        {{/each}}
+    </div>*@
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="~/content/scripts.js"></script>
-<script src="https://npmcdn.com/draggabilly@2.1/dist/draggabilly.pkgd.min.js"></script>
-@*<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.amd.js"></script>*@
+    <div class="testing">
+        <p>{{Title}}</p>
+        <p>{{URL}}</p>
+    </div>
+</script>
+
+
+
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://npmcdn.com/draggabilly@2.1/dist/draggabilly.pkgd.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+<script type="text/javascript" src="~/content/scripts.js"></script>
