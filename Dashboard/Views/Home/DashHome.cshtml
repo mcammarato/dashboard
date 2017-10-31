@@ -80,14 +80,16 @@
 
 
 <script id="pocket-template" type="text/x-handlebars-template">
-    @*<div class="testing">
-        {{#each list}}
+    <div class="testing">
+        @*{{#each list}}
         <a href="{{resolved_url}}">{{resolved_title}}</a>
-        {{/each}}
-    </div>*@
+        {{/each}}*@
+
+        <p>{{Title}}</p>
+    </div>
 
     <div class="testing">
-        <p>{{Title}}</p>
+        <p class="title">{{Title}}</p>
         <p>{{URL}}</p>
     </div>
 </script>
