@@ -24,22 +24,32 @@ namespace Dashboard
             var json = client.UploadString("https://getpocket.com/v3/get", postData);
             BaseObject pocketJSON = JsonConvert.DeserializeObject<BaseObject>(json);
 
-            var pd = new PocketData();
+            
+            Dictionary<int, PocketData> pDict = new Dictionary<int, PocketData>();
 
-            foreach (var entry in pocketJSON.list)
+
+            int counter = 1;
+            foreach(KeyValuePair<int, BaseObject.List> entry in pocketJSON.list)
             {
+                PocketData pd = new PocketData();
+               
                 pd.Title = entry.Value.resolved_title;
                 pd.URL = entry.Value.resolved_url;
                 pd.Excerpt = entry.Value.excerpt;
+
+                pDict.Add(counter, pd);
+                counter++;
+
             }
 
-            var result = JsonConvert.SerializeObject(pd, Formatting.Indented);
+            
+            Dictionary<string, Dictionary<int, PocketData>> pDictResult = new Dictionary<string, Dictionary<int, PocketData>>();
+            pDictResult.Add("data", pDict);
 
-            //var lastFivePocket = (from t in pd
-            //                      orderby t descending
-            //                      select t).Take(5);
-
-            return result;
+            
+            string pocketResult = JsonConvert.SerializeObject(pDictResult);
+           
+            return pocketResult;
         }
 
     }

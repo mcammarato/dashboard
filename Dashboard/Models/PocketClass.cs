@@ -4,11 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Net;
 using System.Web.Script.Serialization;
-
+using Newtonsoft.Json;
 
 namespace Dashboard.Models
 {
-
+    //[JsonArray]
     public class BaseObject
     {
         public int status { get; set; }
@@ -44,6 +44,10 @@ namespace Dashboard.Models
 
     }
 
+    public class pocketList
+    {
+        public List<string> plist = new List<string>();
+    }
 
     public class Search_Meta
     {

@@ -6,11 +6,21 @@
     $.ajax({
         url: '/Home/PocketCall',
         success: function (data) {
+
+            //var pocketData = JSON.parse(data);
+            //var test = pocketData.data[1].Title;
+            //$.each(pocketData.data[1], function (val) {
+            //    $('.testing').append(val);
+            //});
+
             var pocketSource = $('#pocket-template').html();
             var pocketTemplate = Handlebars.compile(pocketSource);
             var pocketHTML = pocketTemplate(data);
 
             $('#mike-data').html(pocketHTML);
+
+            
+           
         }
     })
 

@@ -71,7 +71,6 @@
 
         <div id="mike-data"></div>
 
-
         </div> @* Page Wrap *@
     </section> @* Dash Wrap *@
 </body>
@@ -81,16 +80,11 @@
 
 <script id="pocket-template" type="text/x-handlebars-template">
     <div class="testing">
-        @*{{#each list}}
-        <a href="{{resolved_url}}">{{resolved_title}}</a>
-        {{/each}}*@
-
+        {{#each data}}
         <p>{{Title}}</p>
-    </div>
-
-    <div class="testing">
-        <p class="title">{{Title}}</p>
         <p>{{URL}}</p>
+        <p>{{Excerpt}}</p>
+        {{/each}}
     </div>
 </script>
 
